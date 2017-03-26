@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../bower_components/paper-progress/paper-progress.html">
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
@@ -22,30 +23,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
-      paper-card {
+      .smooth-shadow {
         @apply(--shadow-transition);
+      }
+      h1 {
+        margin: 16px 16px -12px 16px;
+      }
+      paper-card {
         border: 1px solid #eeeeee;
         max-width: 350px;
         margin: 12px auto 12px auto;
       }
+      paper-fab {
+        --paper-fab-keyboard-focus-background: var(--paper-grey-700);
+        --paper-fab-iron-icon: var(--paper-grey-700);
+      }
       paper-card:hover {
-        @apply(--shadow-transition);
         @apply(--shadow-elevation-2dp);
         /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/
       }
       paper-progress {
         width: auto;
       }
+      paper-button {
+        height: 44px;
+        margin: auto;
+        background: var(--paper-blue-500);
+        color: white;
+      }
       .card-element {
         border: 1px solid #eee;
         width: 22px;
         height: 22px;
-        padding: 7px;
+        padding: 8px;
         text-align: center;
         float: left;
       }
       .card-action-content {
         margin: 8px 8px 8px 48px;
+      }
+      .card-actions {
+        /*padding: 0px 16px;*/
+      }
+      img {
+        pointer-events: none;
+        padding-top: 6px;
       }
     </style>
 
@@ -56,7 +78,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!--</div>-->
 
     <div class="flexwrap">
-    <paper-card image="../images/ios.png" alt="Emmental" elevation="0">
+    <paper-card image="../images/ios.png" alt="Emmental" elevation="0" class="smooth-shadow">
 
       <paper-progress value="98"></paper-progress>
       <h1>iPad App</h1>
@@ -69,13 +91,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="card-actions flex-horizontal">
         <!--<paper-button class="flexchild">+ 1</paper-button>-->
         <div class="flexchild">
-          <p>Funding KPIs</p>
+          <!--<p>Funding KPIs</p>-->
+          <img src="../images/funding.png">
         </div>
-        <paper-button>+ 1</paper-button>
+        <!--<paper-button raised>+ 1</paper-button>-->
+        <paper-fab icon="my-icons:plus-one" class="smooth-shadow"></paper-fab>
       </div>
     </paper-card>
 
-    <paper-card image="../images/android.png" alt="Emmental" elevation="0">
+    <paper-card image="../images/android.png" alt="Emmental" elevation="0" class="smooth-shadow">
 
       <paper-progress value="3"></paper-progress>
       <h1>Android App</h1>
@@ -84,13 +108,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
       <div class="card-actions flex-horizontal">
         <div class="flexchild">
-          <p>Funding KPIs</p>
+          <img src="../images/funding.png">
         </div>
-        <paper-button>+ 1</paper-button>
+        <paper-fab icon="my-icons:plus-one" class="smooth-shadow"></paper-fab>
       </div>
     </paper-card>
 
-    <paper-card image="../images/push.png" alt="Emmental" elevation="0">
+    <paper-card image="../images/push.png" alt="Emmental" elevation="0" class="smooth-shadow">
 
       <paper-progress value="1"></paper-progress>
       <h1>Push Notifications MVP</h1>
@@ -103,9 +127,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </div>
       <div class="card-actions flex-horizontal">
         <div class="flexchild">
-          <p>Funding KPIs</p>
+          <img src="../images/funding.png">
         </div>
-        <paper-button>+ 1</paper-button>
+        <!--<paper-button raised class="smooth-shadow">+ 1</paper-button>-->
+        <paper-fab icon="my-icons:plus-one" class="smooth-shadow"></paper-fab>
       </div>
     </paper-card>
     </div>
