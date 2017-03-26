@@ -42,6 +42,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </head>
 <body>
+
   <dom-module id="x-grid">
     <template>
       <style include="app-grid-style">
@@ -94,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
 
         .item:nth-child(5n + 1) {
-          @apply(--app-grid-expandible-item);
+          @apply --app-grid-expandible-item;
           height: 400px;
         }
 
@@ -252,7 +253,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
         });
-      
+
       });
 
     </script>

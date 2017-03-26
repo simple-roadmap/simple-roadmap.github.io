@@ -19,20 +19,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="simple-fit.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="simple-fit.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles">
-    .centered {
-      min-width: 500px;
-    }
+  <custom-style><style is="custom-style" include="demo-pages-shared-styles">
     demo-snippet {
       --demo-snippet-code: {
         max-height: 250px;
       }
     }
-  </style>
+  </style></custom-style>
 
 </head>
 
@@ -50,9 +47,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           display: inline-block;
           box-sizing: border-box;
           border: 1px solid;
-          width: 100px;
-          padding: 20px 0;
-          margin: 5px;
+          width: 120px;
+          padding: 26px 0;
+          margin: 8px;
         }
 
         #myFit {
@@ -68,15 +65,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           border-radius: 5px;
           border-width: 1px;
         }
-        
+
         button.selected {
           background-color: #b3e5fc;
         }
       </style>
-      <template is="dom-bind">
-        <template is="dom-repeat" items="[[containers]]">
+
+      <dom-bind><template is="dom-bind">
+        <dom-repeat items="[[containers]]"><template is="dom-repeat">
           <div class="target" on-tap="updatePositionTarget">Target</div>
-        </template>
+        </template></dom-repeat>
         <simple-fit id="myFit" auto-fit-on-attach>
           <h2>Align</h2>
           <p>
@@ -96,7 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </simple-fit>
         <script>
           var defaultTarget = Polymer.dom(myFit).parentNode;
-          var template = document.querySelector('template[is="dom-bind"]');
+          var template = document.querySelector('dom-bind');
 
           template.containers = new Array(30);
 
@@ -157,7 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             element.classList[condition ? 'add' : 'remove'](cssClass);
           }
         </script>
-      </template>
+      </template></dom-bind>
     </template>
   </demo-snippet>
 

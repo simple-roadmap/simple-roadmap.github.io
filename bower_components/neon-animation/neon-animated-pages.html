@@ -32,7 +32,8 @@ animations to be run when switching to or switching out of the page.
         position: relative;
       }
 
-      :host > ::content > * {
+      :host > ::content > *,
+      :host > ::slotted(*) {
         position: absolute;
         top: 0;
         left: 0;
@@ -40,16 +41,19 @@ animations to be run when switching to or switching out of the page.
         right: 0;
       }
 
-      :host > ::content > :not(.iron-selected):not(.neon-animating) {
+      :host > ::content > :not(.iron-selected):not(.neon-animating),
+      :host > ::slotted(:not(.iron-selected):not(.neon-animating))
+       {
         display: none !important;
       }
 
-      :host > ::content > .neon-animating {
+      :host > ::content > .neon-animating,
+      :host > ::slotted(.neon-animating) {
         pointer-events: none;
       }
     </style>
     
-    <content id="content"></content>
+    <slot id="content"></slot>
   </template>
 
 </dom-module>
@@ -125,7 +129,7 @@ animations to be run when switching to or switching out of the page.
       if (oldPage) {
 
         // cancel the currently running animation if one is ongoing.
-        if (oldPage.classList.contains('neon-animating')) {
+        if (Polymer.dom(oldPage).classList.contains('neon-animating')) {
           this._squelchNextFinishEvent = true;
           this.cancelAnimation();
           this._completeSelectedChanged();
@@ -148,11 +152,11 @@ animations to be run when switching to or switching out of the page.
         }
 
         // display the oldPage during the transition.
-        oldPage.classList.add('neon-animating');
+        Polymer.dom(oldPage).classList.add('neon-animating');
       }
 
       // display the selectedPage during the transition.
-      selectedPage.classList.add('neon-animating');
+      Polymer.dom(selectedPage).classList.add('neon-animating');
 
       // actually run the animations.
       if (this.animationConfig.length >= 1) {
@@ -184,15 +188,15 @@ animations to be run when switching to or switching out of the page.
      */
     _completeSelectedChanged: function(oldPage, selectedPage) {
       if (selectedPage) {
-        selectedPage.classList.remove('neon-animating');
+        Polymer.dom(selectedPage).classList.remove('neon-animating');
       }
       if (oldPage) {
-        oldPage.classList.remove('neon-animating');
+        Polymer.dom(oldPage).classList.remove('neon-animating');
       }
       if (!selectedPage || !oldPage) {
-        var nodes = Polymer.dom(this.$.content).getDistributedNodes();
+        var nodes = this._getDistributedNodes(this.$.content);
         for (var node, index = 0; node = nodes[index]; index++) {
-          node.classList && node.classList.remove('neon-animating');
+          node.classList && Polymer.dom(node).classList.remove('neon-animating');
         }
       }
       this.async(this._notifyPageResize);
@@ -212,6 +216,23 @@ animations to be run when switching to or switching out of the page.
         return element == selectedPage;
       }
       this.notifyResize();
+    },
+
+   /**
+     * Returns distributed nodes either from the slot or
+     * content (dual-mode support).
+     * @private
+     */
+    _getDistributedNodes: function(projectionPoint) {
+      var domProjectionPoint = Polymer.dom(projectionPoint)
+
+      if (domProjectionPoint.getDistributedNodes) {
+        return domProjectionPoint.getDistributedNodes();
+      }
+      
+      return domProjectionPoint.assignedNodes({
+        flatten: true
+      });
     }
 
   })

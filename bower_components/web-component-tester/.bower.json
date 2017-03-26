@@ -1,7 +1,7 @@
 {
   "name": "web-component-tester",
   "description": "web-component-tester makes testing your web components a breeze!",
-  "version": "5.0.0",
+  "version": "6.0.0-prerelease.5",
   "main": [
     "browser.js"
   ],
@@ -10,7 +10,9 @@
     "*",
     "!/data/*",
     "!/browser.js",
-    "!/browser.js.map"
+    "!/browser.js.map",
+    "!/package.json",
+    "!/bower.json"
   ],
   "keywords": [
     "browser",
@@ -32,20 +34,20 @@
     "sinon-chai": "^2.7.0",
     "sinonjs": "^1.14.1",
     "stacky": "^1.3.0",
-    "test-fixture": "polymerelements/test-fixture#^1.0.0"
+    "test-fixture": "polymerelements/test-fixture#^2.0.0"
   },
   "devDependencies": {
     "polymer": "Polymer/polymer#^1.5.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.22"
   },
   "homepage": "https://github.com/Polymer/web-component-tester",
-  "_release": "5.0.0",
+  "_release": "6.0.0-prerelease.5",
   "_resolution": {
     "type": "version",
-    "tag": "v5.0.0",
-    "commit": "0d419a932c6e221ae9be978f34b1f83d7baf64f6"
+    "tag": "v6.0.0-prerelease.5",
+    "commit": "c717a4d94b094709a0678ac0d1748512edd89508"
   },
   "_source": "https://github.com/Polymer/web-component-tester.git",
-  "_target": "*",
+  "_target": "6.0.0-prerelease.5",
   "_originalSource": "web-component-tester"
 }
