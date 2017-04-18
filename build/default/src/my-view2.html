@@ -11,19 +11,212 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 </head><body><dom-module id="my-view2">
   <template>
-    <style include="shared-styles">
-      :host {
-        display: block;
+    <style>.card {
+      margin: 24px;
+      padding: 16px;
+      color: #757575;
+      border-radius: 5px;
+      background-color: #fff;
+      border: #ddd;
+    }
 
-        padding: 10px;
+    .circle {
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      text-align: center;
+      color: #555;
+      border-radius: 50%;
+      background: #ddd;
+      font-size: 30px;
+      line-height: 64px;
+    }
+
+    h1 {
+      color: #212121;
+
+      font-family: var(--paper-font-headline_-_font-family); -webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing); font-size: var(--paper-font-headline_-_font-size); font-weight: var(--paper-font-headline_-_font-weight); letter-spacing: var(--paper-font-headline_-_letter-spacing); line-height: var(--paper-font-headline_-_line-height);
+    }
+
+    .subhead {
+      font-family: var(--paper-font-subhead_-_font-family); -webkit-font-smoothing: var(--paper-font-subhead_-_-webkit-font-smoothing); font-size: var(--paper-font-subhead_-_font-size); font-weight: var(--paper-font-subhead_-_font-weight); line-height: var(--paper-font-subhead_-_line-height);
+    }
+
+    .flex-horizontal {
+      display: var(--layout-horizontal_-_display); -ms-flex-direction: var(--layout-horizontal_-_-ms-flex-direction); -webkit-flex-direction: var(--layout-horizontal_-_-webkit-flex-direction); flex-direction: var(--layout-horizontal_-_flex-direction);
+    }
+
+    .flexchild {
+      -ms-flex: var(--layout-flex_-_-ms-flex); -webkit-flex: var(--layout-flex_-_-webkit-flex); flex: var(--layout-flex_-_flex); -webkit-flex-basis: var(--layout-flex_-_-webkit-flex-basis); flex-basis: var(--layout-flex_-_flex-basis);
+    }
+
+    .flex-wrap {
+      display: var(--layout-horizontal_-_display); -ms-flex-direction: var(--layout-horizontal_-_-ms-flex-direction); -webkit-flex-direction: var(--layout-horizontal_-_-webkit-flex-direction); flex-direction: var(--layout-horizontal_-_flex-direction);
+      -ms-flex-wrap: var(--layout-wrap_-_-ms-flex-wrap); -webkit-flex-wrap: var(--layout-wrap_-_-webkit-flex-wrap); flex-wrap: var(--layout-wrap_-_flex-wrap);
+      width: 200px;
+    }
+
+    :host {
+      display: block;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 0.9;
+    }
+
+    h2 {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    th {
+      font-size: 36px;
+    }
+
+    .left-aligned {
+      text-align: left;
+      padding-bottom: 48px;
+    }
+
+    .left-aligned tr td {
+      padding-right: 36px;
+      font-size: 14px;
+      margin-top: -12px;
+    }
+
+    ul {
+      padding-bottom: 24px;
+    }
+
+    li {
+      list-style-type: none;
+      line-height: 34px;
+    }
+
+    li:before {
+      content: " - ";
+      text-indent: -16px;
+    }
+
+    .element {
+      border: 1px solid #dedede;
+      padding: 3px 4px 3px 8px;
+      font-weight: bold;
+    }
+
+    .team {
+      font-size: 16px;
+      padding-left: 12px;
+      padding-right: 12px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 1050px) {
+      .card {
+        padding-left: 400px;
       }
+
+      #bg {
+        position: absolute;
+        height: 800px;
+
+        margin-left: -400px;
+      }
+
+      .badges {
+        height: 116px;
+      }
+
+    }
+
+    @media screen and (max-width: 1049px) {
+      #bg {
+        display: none
+      }
+
+      .badges {
+        height: 75px;
+      }
+
+    }
+
+    @media screen and (max-width: 479px) {
+      .badges {
+        display: none
+      }
+
+    }
+
     </style>
 
     <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+
+      <img id="bg" src="../images/bg.png">
+      <!--<div class="circle">2</div>-->
+      <table width="100%">
+        <tbody><tr>
+          <td><h1>Mobile My Accounts</h1></td>
+          <td><img class="badges" src="../images/badge.png"></td>
+          <td><img class="badges" src="../images/shirt.png"></td>
+          <!--<td><p>Visitation Badge</p></td>-->
+          <!--<td><p>Extra Large</p></td>-->
+        </tr>
+        </tbody></table>
+
+      <table class="left-aligned">
+        <tbody><tr>
+          <th>-XX%</th>
+          <th>+$X.X</th>
+          <th>XX</th>
+        </tr>
+        <tr>
+          <td>Cart Abandonment</td>
+          <td>Revenue per month</td>
+          <td>comments</td>
+        </tr>
+        </tbody></table>
+
+      <h2>Opportunities</h2>
+      <ul>
+        <li>Includes all platforms</li>
+        <li>beginning with iOS</li>
+        <li>less tech debt</li>
+        <li>uses latest Best Buy design specs</li>
+      </ul>
+      <h2>Benefits</h2>
+      <ul>
+        <li>Better App Store Rating</li>
+        <li>More customers</li>
+        <li>lower crash rate</li>
+        <li>more revenue</li>
+      </ul>
+
+      <h2>
+        Key streams
+      </h2>
+
+      <table>
+        <tbody><tr>
+          <td class="element">Ac</td>
+          <td class="team">Accounts &amp; Communications</td>
+          <td class="element">Oc</td>
+          <td class="team">Orders &amp; Checkout</td>
+          <td class="element">Da</td>
+          <td class="team">Data &amp; Analytics</td>
+        </tr>
+        <tr>
+          <td class="element">Mp</td>
+          <td class="team">Marketplace &amp; Product</td>
+          <td class="element">Ma</td>
+          <td class="team">Mobile Apps</td>
+          <td class="element">Sb</td>
+          <td class="team">Search &amp; Browse</td>
+        </tr>
+        </tbody></table>
+
     </div>
   </template>
 
