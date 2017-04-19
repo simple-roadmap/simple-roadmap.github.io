@@ -71,6 +71,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: 50px;
         width: 50px;
       }
+
+      .submenu {
+        padding-left: 36px !important;
+      }
+
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -81,9 +86,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer id="drawer" slot="drawer">
         <app-toolbar>Product Teams</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">Mobile Apps</a>
-          <a name="view2" href="/view2">Logistics</a>
-          <a name="view3" href="/view3">Accounts &amp; Communications</a>
+          <a name="view0" href="/view3">Mobile Apps</a>
+          <a name="view1" href="/view1" class="submenu">Roadmap</a>
+          <a name="view2" href="/view2" class="submenu">Initiatives</a>
+          <a name="view3" href="/view3" class="submenu">KPIs</a>
+          <a name="view4" href="/view3">Accounts &amp; Communications</a>
+          <a name="view5" href="/view3">Data &amp; Analytics</a>
+          <a name="view6" href="/view3">Search &amp; Browse</a>
+          <a name="view7" href="/view3">Marketplace &amp; Product</a>
+          <a name="view8" href="/view3">Orders &amp; Checkout</a>
         </iron-selector>
       </app-drawer>
 
@@ -94,7 +105,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <!--<paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>-->
             <paper-icon-button src="../images/logo.png" class="logo" drawer-toggle=""></paper-icon-button>
-            <div main-title="">Mobile Apps Initiatives</div>
+            <div main-title="">{{page}}</div>
             <paper-icon-button icon="my-icons:more-vert"></paper-icon-button>
           </app-toolbar>
         </app-header>
